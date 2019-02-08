@@ -1,2 +1,6 @@
 br/com/expoente/supremo/config/ApplicationConfig.class
+br/com/expoente/supremo/dao/MinistroDao.class
 br/com/expoente/supremo/resource/MinistroResource.class
+br/com/expoente/supremo/dao/PlanilhaDAO.class
+br/com/expoente/supremo/entity/Ministro.class
+br/com/expoente/supremo/entity/Planilha.class
