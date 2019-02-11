@@ -12,7 +12,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 public class PlanilhaDAO {
 
     @Inject
-    private MinistroDao ministroDAO;
+    private MinistroDAO ministroDAO;
 
     public void planilha(Workbook planilha, Integer codigoPlanilha) {
         Sheet sheet = planilha.getSheetAt(0);

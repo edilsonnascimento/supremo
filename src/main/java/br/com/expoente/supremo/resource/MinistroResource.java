@@ -1,7 +1,8 @@
 package br.com.expoente.supremo.resource;
 
-import br.com.expoente.supremo.dao.MinistroDao;
+import br.com.expoente.supremo.dao.MinistroDAO;
 import br.com.expoente.supremo.dao.PlanilhaDAO;
+import br.com.expoente.supremo.entity.Ministro;
 
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -12,13 +13,15 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import java.net.URI;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.PUT;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -33,7 +36,7 @@ import javax.ws.rs.core.Response;
 public class MinistroResource {
 
     @Inject
-    MinistroDao ministroDao;
+    MinistroDAO ministroDao;
 
     @Inject
     PlanilhaDAO planilhaDAO;
@@ -42,24 +45,47 @@ public class MinistroResource {
     }
 
     @GET
+    @Path("test")
     public String getJson() {
         return "TESTE DE RETORNO";
     }
+    
+    //URI exemplo: http://localhost:8080/supremo/api/ministro/2
+    @GET
+    @Path("{id}")
+    public Ministro retornaMinistro(@PathParam("id") Integer id){
+        return ministroDao.buscaMinistro(id);
+    }
+    
+    @GET
+    public List<Ministro> retornaMinistros(){
+        return ministroDao.buscaMinistros();
+    }
 
-    @PUT
+    // URI exemplo: http://localhost:8080/supremo/api/ministro/?codigoPlanilha=302
+    @POST
     @Consumes("multipart/form-data")
     public Response updadeFile(MultipartFormDataInput file, @QueryParam("codigoPlanilha") Integer codigoPlanilha) throws IOException {
 
         InputStream in = file.getFormDataPart("file", InputStream.class, null);
+        
         //Planilha
         Workbook workbook = new XSSFWorkbook(in);
-
-        in.close();
-
+        
         planilhaDAO.planilha(workbook, codigoPlanilha);
 
         URI uri = URI.create("/importar/" + codigoPlanilha);
+        
+        in.close();
 
         return Response.created(uri).build();
     }
+    
+    @GET
+    @Path("aposentam/1")
+    public Ministro aposentamEm(@PathParam("quantidadeAnos") Integer quantidadeAnos){
+        return ministroDao.ministroMaisVelho();
+    }
+    
+    
 }
