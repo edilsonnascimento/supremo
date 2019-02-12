@@ -1,6 +1,6 @@
 package br.com.expoente.supremo.entity;
 
-import java.util.Date;
+import java.util.Calendar;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,7 +22,7 @@ public class Ministro {
     private String nome;
 
     @Temporal(TemporalType.TIMESTAMP)
-    private Date dataNascimento;
+    private Calendar dataNascimento;
 
     private String presidente;
 
@@ -42,11 +42,11 @@ public class Ministro {
         this.nome = nome;
     }
 
-    public Date getDataNascimento() {
+    public Calendar getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(Calendar dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
@@ -56,6 +56,15 @@ public class Ministro {
 
     public void setPresidente(String presidente) {
         this.presidente = presidente;
+    }
+
+    public Integer getIdade() {
+        Calendar dataAtual = Calendar.getInstance();
+        return (dataAtual.get(Calendar.YEAR) - this.getDataNascimento().get(Calendar.YEAR));
+    }
+
+    public Integer getNumeroProcessos() {
+        return 300;
     }
 
 }

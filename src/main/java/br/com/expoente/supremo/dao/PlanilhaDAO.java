@@ -1,6 +1,8 @@
 package br.com.expoente.supremo.dao;
 
 import br.com.expoente.supremo.entity.Ministro;
+import java.util.Calendar;
+import java.util.Date;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import org.apache.poi.ss.usermodel.Cell;
@@ -29,7 +31,10 @@ public class PlanilhaDAO {
                         ministro.setNome(cell.getStringCellValue());
                         break;
                     case 1:
-                        ministro.setDataNascimento(cell.getDateCellValue());
+                        Calendar calendar = Calendar.getInstance();
+                        Date data = cell.getDateCellValue();
+                        calendar.setTime(data);
+                        ministro.setDataNascimento(calendar);
                         break;
                     case 2:
                         ministro.setPresidente(cell.getStringCellValue());
