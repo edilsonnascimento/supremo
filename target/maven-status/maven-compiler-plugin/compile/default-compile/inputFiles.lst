@@ -1,6 +1,7 @@
-/home/ednascimento/netBeansProjects/supremo/src/main/java/br/com/expoente/supremo/resource/MinistroResource.java
-/home/ednascimento/netBeansProjects/supremo/src/main/java/br/com/expoente/supremo/entity/Ministro.java
-/home/ednascimento/netBeansProjects/supremo/src/main/java/br/com/expoente/supremo/config/ApplicationConfig.java
-/home/ednascimento/netBeansProjects/supremo/src/main/java/br/com/expoente/supremo/dao/MinistroDAO.java
-/home/ednascimento/netBeansProjects/supremo/src/main/java/br/com/expoente/supremo/entity/Planilha.java
-/home/ednascimento/netBeansProjects/supremo/src/main/java/br/com/expoente/supremo/dao/PlanilhaDAO.java
+/home/ednascimento/NetBeansProjects/supremo/src/main/java/br/com/expoente/supremo/dao/MinistroDAO.java
+/home/ednascimento/NetBeansProjects/supremo/src/main/java/br/com/expoente/supremo/dao/PlanilhaDAO.java
+/home/ednascimento/NetBeansProjects/supremo/src/main/java/br/com/expoente/supremo/entity/Planilha.java
+/home/ednascimento/NetBeansProjects/supremo/src/main/java/br/com/expoente/supremo/config/ImportacaoClienteSchedule.java
+/home/ednascimento/NetBeansProjects/supremo/src/main/java/br/com/expoente/supremo/config/ApplicationConfig.java
+/home/ednascimento/NetBeansProjects/supremo/src/main/java/br/com/expoente/supremo/entity/Ministro.java
+/home/ednascimento/NetBeansProjects/supremo/src/main/java/br/com/expoente/supremo/resource/MinistroResource.java
