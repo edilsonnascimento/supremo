@@ -1,5 +1,6 @@
 package br.com.expoente.supremo.entity;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,58 +14,58 @@ import javax.persistence.TemporalType;
  * @author ednascimento
  */
 @Entity
-public class Ministro {
+public class Ministro implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 
-    private String nome;
+	private String nome;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Calendar dataNascimento;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Calendar dataNascimento;
 
-    private String presidente;
+	private String presidente;
 
-    public Integer getId() {
-        return id;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public String getNome() {
-        return nome;
-    }
+	public String getNome() {
+		return nome;
+	}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public Calendar getDataNascimento() {
-        return dataNascimento;
-    }
+	public Calendar getDataNascimento() {
+		return dataNascimento;
+	}
 
-    public void setDataNascimento(Calendar dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
+	public void setDataNascimento(Calendar dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
 
-    public String getPresidente() {
-        return presidente;
-    }
+	public String getPresidente() {
+		return presidente;
+	}
 
-    public void setPresidente(String presidente) {
-        this.presidente = presidente;
-    }
+	public void setPresidente(String presidente) {
+		this.presidente = presidente;
+	}
 
-    public Integer getIdade() {
-        Calendar dataAtual = Calendar.getInstance();
-        return (dataAtual.get(Calendar.YEAR) - this.getDataNascimento().get(Calendar.YEAR));
-    }
+	public Integer getIdade() {
+		Calendar dataAtual = Calendar.getInstance();
+		return (dataAtual.get(Calendar.YEAR) - this.getDataNascimento().get(Calendar.YEAR));
+	}
 
-    public Integer getNumeroProcessos() {
-        return 300;
-    }
+	public Integer getNumeroProcessos() {
+		return 300;
+	}
 
 }

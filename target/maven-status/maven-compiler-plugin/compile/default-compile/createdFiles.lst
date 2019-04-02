@@ -1,7 +1,9 @@
+br/com/expoente/supremo/service/PlanilhaService.class
 br/com/expoente/supremo/config/ApplicationConfig.class
-br/com/expoente/supremo/dao/MinistroDAO.class
+br/com/expoente/supremo/config/EntityManagerProducer.class
+br/com/expoente/supremo/repository/MinistroRepository.class
 br/com/expoente/supremo/resource/MinistroResource.class
 br/com/expoente/supremo/config/ImportacaoClienteSchedule.class
-br/com/expoente/supremo/dao/PlanilhaDAO.class
+br/com/expoente/supremo/service/MinistroService.class
 br/com/expoente/supremo/entity/Ministro.class
 br/com/expoente/supremo/entity/Planilha.class
